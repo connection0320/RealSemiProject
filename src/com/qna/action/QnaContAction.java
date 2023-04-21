@@ -19,6 +19,7 @@ public class QnaContAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// get 방식으로 넘어온 글번호에 해당하는 게시글의 상세 내역을 DB에서 조회하여 view page로 이동시키는 비지니스 로직.
 		int qna_num = Integer.parseInt(request.getParameter("num").trim());
+		int page = Integer.parseInt(request.getParameter("page").trim());
 		
 		QnaDAO dao = QnaDAO.getInstance();
 		
@@ -45,6 +46,7 @@ public class QnaContAction implements Action {
 		request.setAttribute("Nick", nick);
 		request.setAttribute("Content", cont);
 		request.setAttribute("Qlist", list);
+		request.setAttribute("page", page);
 		
 		
 		ActionForward forward = new ActionForward();

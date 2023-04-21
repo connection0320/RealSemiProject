@@ -7,62 +7,64 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src = "http://code.jquery.com/jquery-3.6.1.js"></script>
+<link rel="stylesheet" href="board_css/board.css">
 </head>
 <body>
+	<%@include file="header.jsp"%>
 	<div align = "center">
 		<c:set var = "dto" value = "${Content}" />
-		<hr width = "50%" color = "tomato">
-		<h3>${Nick}님 게시글 상세 내역 페이지</h3>
-		<hr width = "50%" color = "tomato">
+		<div id="board_head"><span class="sp-title">${Nick}님 고객센터 상세내역</span></div>
 		<br>
-		<table border = "1" cellspacing = "0" width = "400">
+		<table class="table">
 			<tr>
-				<th>글 No.</th>
-				<td>${dto.getQna_num()}</td>
+				<th id="contTh">글 No.</th>
+				<td id="contTd">${dto.getQna_num()}</td>
 			</tr>
 			<tr>
-				<th>말머리</th>
-				<td>${dto.getQna_head()}</td>
+				<th id="contTh">말머리</th>
+				<td id="contTd">${dto.getQna_head()}</td>
 			</tr>
 			<tr>
-				<th>작성자</th>
-				<td>${Nick}</td>
+				<th id="contTh">작성자</th>
+				<td id="contTd">${Nick}</td>
 			</tr>
 			<tr>
-				<th>글 제목</th>
-				<td>${dto.getQna_title()}</td>
+				<th id="contTh">글 제목</th>
+				<td id="contTd">${dto.getQna_title()}</td>
 			</tr>
 			<tr>
-				<th>글 내용</th>
-				<td>${dto.getQna_content()}</td>
+				<th id="contTh">글 내용</th>
+				<td id="contTd">${dto.getQna_content()}</td>
 			</tr>
 			<tr>
-				<th>첨부파일</th>
+				<th id="contTh">첨부파일</th>
 				<c:if test="${!empty dto.getQna_file()}">
-					<td><a href = "<%=request.getContextPath()%>/qnaFileUpload/${dto.getQna_file()}" target = "_blank">${dto.getQna_file()}</a></td>
+					<td id="contTd"><a href = "<%=request.getContextPath()%>/qnaFileUpload/${dto.getQna_file()}" target = "_blank">${dto.getQna_file()}</a></td>
 				</c:if>
 				<c:if test="${empty dto.getQna_file()}">
-				<td></td>
+				<td id="contTd"></td>
 				</c:if>
 			</tr>
 			<tr>
-				<th>글 조회수</th>
-				<td>${dto.getQna_hit()}</td>
+				<th id="contTh">조회 수</th>
+				<td id="contTd">${dto.getQna_hit()}</td>
 			</tr>
 			<tr>
-				<th>글 작성일자</th>
-				<td>${dto.getQna_regdate()}</td>
+				<th id="contTh">작성 날짜</th>
+				<td id="contTd">${dto.getQna_regdate()}</td>
 			</tr>
 			<tr>
-				<th>글 수정일자</th>
+				<th id="contTh">수정 날짜</th>
 				<c:if test="${empty dto.getQna_update()}">
-					<td>${dto.getQna_update()}</td>
+					<td id="contTd">${dto.getQna_update()}</td>
+				</c:if>
+				<c:if test="${!empty dto.getQna_update()}">
+					<td id="contTd">${dto.getQna_update()}</td>
 				</c:if>
 			</tr>
 			<tr>
-				<th>글 비밀번호</th>
-				<td>
+				<th id="contTh">글 비밀번호</th>
+				<td id="contTd">
 					<c:if test="${!empty dto.getQna_pwd()}">
 						<c:forEach begin="1" end="${dto.getQna_pwd().length()}">
 							*
@@ -73,70 +75,69 @@
 			<%-- 데이터가 없는 경우 --%>
 			<c:if test="${empty dto}">
 				<tr>
-					<td colspan = "2" align = "center">
+					<td id = "xboard" colspan = "2" align = "center">
 						<h3>조회된 게시물이 없습니다.</h3>
 					</td>
 				</tr>
 			</c:if>
 		</table>
 		<br>
-		<input type = "button" value = "글수정" onclick = "location.href='qna_modify.so?no=${dto.getQna_num()}'">&nbsp;
-		<input type = "button" value = "글삭제" onclick = "if(confirm('게시글을 삭제 하시겠습니까?')) {
-			location.href='qna_delete.so?no=${dto.getQna_num()}'
+		<input id="cont_bt2" type = "button" value = "수정" onclick = "location.href='qna_modify.so?no=${dto.getQna_num()}&page=${page}'">&nbsp;
+		<input id="cont_bt2" type = "button" value = "삭제" onclick = "if(confirm('게시글을 삭제 하시겠습니까?')) {
+			location.href='qna_delete.so?no=${dto.getQna_num()}&page=${page}'
 			} else { return; }">&nbsp;
-		<input type = "button" value = "전체목록" onclick = "location.href='qna_list.so?id=${User}'">
+		<input id="cont_bt2" type = "button" value = "목록" onclick = "location.href='qna_list.so?id=${User}&page=${page}'">
 		<br><br>
-		<hr width = "50%" color = "red">
-		<br>
 		
 		
 		<%-- 댓글 폼 영역입니다. --%>
-		<form method ="post" action = "qna_reply_insert_ok.so">
+		<form method ="post"  action = "qna_reply_insert_ok.so">
 			<div>
 				<input type="hidden" name="qno" value="${dto.getQna_num()}">
-				<table cellspacing = "0" width = "400">
+				<input type="hidden" name="page" value="${page}">
+				<table class="table">
 					<tr>
-						<th>작성자</th>
-						<td><input type = "text" name = "re_writer" id = "re_writer"></td>
+						<th id="contTh">작성자</th>
+						<td id="contTd"><input type = "text" name = "re_writer" id = "re_writer"></td>
 					</tr>
 					<tr>
-						<th>댓글내용</th>
-						<td><input type = "text" name = "re_content" id = "re_content"></td>
-					</tr>
-					<tr>
-						<td colspan = "2" align = "right">
-							<button type="submit">댓글작성</button>
-						</td>
+						<th id="contTh">댓글내용</th>
+						<td id="contTd"><input type = "text" name = "re_content" id = "re_content"></td>
 					</tr>
 				</table>
+				<br>
+				<div>
+					<button id="cont_bt" type="submit">댓글작성</button>
+				</div>
 			</div>
 		</form>
 		
 		<br>
 		<h3>댓글 목록</h3>
 		<div>
-			<table border="1" cellspacing="0" width="400">
+			<table class="table">
 			<tr>
-				<th>작성자</th>
-				<th>댓글내용</th>
+				<th id="contTh2">작성자</th>
+				<th id="contTh1">댓글내용</th>
 			</tr>
 			
 			<c:if test="${!empty Qlist}">
 				<c:forEach items="${Qlist}" var="dto">
 					<tr>
-						<td>${dto.getQna_rewriter()}</td>
-						<td>${dto.getQna_recont()}</td>
+						<td id="contTd2">${dto.getQna_rewriter()}</td>
+						<td id="contTd">${dto.getQna_recont()}</td>
 					</tr>
 				</c:forEach>
 			</c:if>
 			<c:if test="${empty Qlist}">
 				<tr>
-					<td colspan="7" align="center">
+					<td id = "xboard" colspan="7" align="center">
 						<h3>작성된 댓글이 없습니다.</h3>
 				</tr>
 			</c:if>
 		</table>
 		</div>
 	</div>
+	<%@include file="footer.jsp"%>
 </body>
 </html>

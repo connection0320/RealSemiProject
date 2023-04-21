@@ -37,13 +37,16 @@ public class QnaModifyOkAction implements Action {
 						"UTF-8", // 문자 인코딩 방식
 						new DefaultFileRenamePolicy() // 첨부 파일의 이름이 같은 경우 중복이 안되게 설정.
 						);
-		
+
+		// type = "hidden" 으로 넘어온 데이터들도 받아 주어야 한다.
 		// 자료실 폼 페이지에서 넘어온 데이터들을 받아 주자.
+		int qna_num = Integer.parseInt(multi.getParameter("num").trim());
 		int qna_writer = Integer.parseInt(multi.getParameter("qna_writer").trim());
 		String qna_title = multi.getParameter("qna_title").trim();
 		String qna_content = multi.getParameter("qna_content").trim();
 		String qna_head = multi.getParameter("qna_field").trim();
 		String qna_pwd = multi.getParameter("qna_pwd").trim();
+		int page = Integer.parseInt(multi.getParameter("page").trim());
 		
 		if(qna_head.equals("propose")) {
 			qna_head = "건의";
@@ -57,9 +60,6 @@ public class QnaModifyOkAction implements Action {
 		
 		// 자료실 폼 페이지에서 type = "file" 속성으로 되어 있으면 getFile() 메서드로 받아 주어야 함.
 		File qna_file = multi.getFile("qna_file");
-		
-		// type = "hidden" 으로 넘어온 데이터들도 받아 주어야 한다.
-		int qna_num = Integer.parseInt(multi.getParameter("num").trim());
 		
 		if(qna_file != null) { // 첨부파일이 존재하는 경우
 			// 우선은 첨부파일의 이름을 알아야 함.
@@ -107,7 +107,7 @@ public class QnaModifyOkAction implements Action {
 		if(res > 0) {
 			out.println("<script>");
 			out.println("alert('게시글 수정 성공')");
-			out.println("location.href='qna_content.so?num=" + qna_num + "'");
+			out.println("location.href='qna_content.so?num=" + qna_num + "&page="+page+"'");
 			out.println("</script>");
 		} else if (res == -1) {
 			out.println("<script>");
@@ -122,5 +122,4 @@ public class QnaModifyOkAction implements Action {
 		}
 		return null;
 	}
-
 }

@@ -85,6 +85,30 @@ public class QnaDAO {
 		}
 	}	// closeConn() 메서드 end
 	
+	// qna_board 테이블의 전체 게시물의 수를 확인하는 메서드.
+	public int getQnaCount() {
+		int count = 0;
+		
+		try {
+			openConn();
+			
+			sql = "select count(*) from qna_board";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return count;
+	} // getQnaCount() 메서드 end
+	
 	// qna_board 테이블의 전체 게시물을 조회하는 메서드
 	public List<QnaDTO> getQnaList() {
 		List<QnaDTO> list = new ArrayList<QnaDTO>();
@@ -236,23 +260,25 @@ public class QnaDAO {
 				if(dto.getQna_pwd().equals(rs.getString("qna_pwd"))) {
 					if(dto.getQna_file() == null) {
 						// 첨부파일이 없는 경우
-						sql = "update qna_board set qna_title = ?, qna_content = ?, qna_update = sysdate where qna_num = ?";
+						sql = "update qna_board set qna_title = ?, qna_head = ?, qna_content = ?, qna_update = sysdate where qna_num = ?";
 						
 						pstmt = con.prepareStatement(sql);
 						
 						pstmt.setString(1, dto.getQna_title());
-						pstmt.setString(2, dto.getQna_content());
-						pstmt.setInt(3, dto.getQna_num());
+						pstmt.setString(2, dto.getQna_head());
+						pstmt.setString(3, dto.getQna_content());
+						pstmt.setInt(4, dto.getQna_num());
 					} else {
 						// 첨부파일이 있는 경우
-						sql = "update qna_board set qna_title = ?, qna_content = ?, qna_file = ?, qna_update = sysdate where qna_num = ?";
+						sql = "update qna_board set qna_title = ?, qna_head = ?, qna_content = ?, qna_file = ?, qna_update = sysdate where qna_num = ?";
 						
 						pstmt = con.prepareStatement(sql);
 						
 						pstmt.setString(1, dto.getQna_title());
-						pstmt.setString(2, dto.getQna_content());
-						pstmt.setString(3, dto.getQna_file());
-						pstmt.setInt(4, dto.getQna_num());
+						pstmt.setString(2, dto.getQna_head());
+						pstmt.setString(3, dto.getQna_content());
+						pstmt.setString(4, dto.getQna_file());
+						pstmt.setInt(5, dto.getQna_num());
 					}
 					result = pstmt.executeUpdate();
 				} else {

@@ -68,27 +68,36 @@ html, body {
 	border-bottom:none;
 }
 #but{
-	border:1px solid black;
+	border:none;
+	border-radius:5px;
+	padding:5px;
 	display:inline;
-	background: transparent;
+	background: #8a704f;
 	text-align:center;
 	margin: 0 auto;
 	align-content:center;	
 	margin-left:40%;
+	color: #f9f6ef;
 }
 #but:hover {
-	background-color: white;	
-	color: black;
-	border: 1px solid black;
+ 	background: transparent; 
+	/* background-color: white; */	
+	color: #8a704f;
+	border: none;
 }
 
 #m_sub{
-	width: 25%;
-	border: 1px solid black;
+	width: 15%;
+	background: #8a704f;
+	border:none;
+	border-radius:5px;
+	color: #f9f6ef;
+	padding: 5px;
 }
 
 #m_sub:hover {
-	background-color:rgba(0,0,0,0.5);	
-	color: black;
-	border: 1px solid black;
+ 	background: transparent; 
+	/* background-color: white; */	
+	color: #8a704f;
+	border: none;
 }

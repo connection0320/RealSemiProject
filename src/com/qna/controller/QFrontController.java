@@ -52,7 +52,7 @@ public class QFrontController extends HttpServlet {
 		 * - 읽어 들일 때 사용하는 메서드는 load() 라는 메서드를 이용하여 파일을 읽어 들이게 됨.
 		 */
 		
-		FileInputStream fis = new FileInputStream("C:\\Users\\user1\\git\\RealSemiProject\\src\\com\\qna\\controller\\mapping.properties");
+		FileInputStream fis = new FileInputStream("C:\\Users\\user1\\Desktop\\RealSemiP\\src\\com\\qna\\controller\\mapping.properties");
 		prop.load(fis);
 		String value = prop.getProperty(command);
 		System.out.println("value >>> " + value);

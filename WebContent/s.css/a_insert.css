@@ -1,94 +1,102 @@
-@charset "UTF-8";
-
-html, body {
-  height: 100%;
-}
-.boby{
-	 height: 100%;
-  width:100%;
-/*   background: url("../s.image/Nyan Cat.gif") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-
-}
-.container{
-	max-width: 1500px;
+/* Container */
+.container {
+	background-image: url("../s.image/1681888502807.png");
+	background-size: 680px;
+	background-position: center top -20px;
+	background-repeat: no-repeat;
+	overflow: hidden;
 	margin: 0 auto;
-	max-height:1200px;
+}
+
+body {
+background-color: #f9f6ef;
+}
+
+/* Table */
+.my_ani {
+width: 15%;
+margin-bottom: 20px;
+border-collapse: collapse;
+}
+
+.my_ani th,
+.my_ani td {
+border: 1px solid #8a704f;
+padding: 10px;
+text-align: center;
+}
+
+.my_ani th {
+background-color: #8a704f;
+color: #f9f6ef;
+border-bottom: 1px solid #f9f6ef;
+width: 80px;
+}
+
+.my_ani .th3 {
+background-color: #8a704f;
+color: #f9f6ef;
+border-bottom: 1px solid #8a704f;
+width: 100px;
+}
+
+/* Form */
+.join {
+width: 100%;
+margin-top: 20px;
+margin-bottom: 20px;
+padding-left: 405px;
+}
+
+.join th,
+.join td {
+font-size: 14px;
+}
+
+.join th {
+	width: 70px;
+}
+
+.join input[type="text"],
+.join input[type="number"],
+.join input[type="file"] {
+width: 100%;
+padding: 10px;
+margin-top: 5px;
+margin-bottom: 10px;
+border: none;
+border-radius: 5px;
+}
+
+/* Radio buttons */
+.choice input[type="radio"] {
+margin-right: 5px;
+}
+
+/* Submit button */
+#sub {
+margin-right: 1%;
+display: inline-block;
+width: 80px;
+height: 40px;
+padding: 10px;
+background-color: #8a704f;
+color: #ffffff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 14px;
+align-content: center;
+text-align: center;
+margin-left: 140px;
+}
+.tata{
 	align-content: center;
-}
-.my_ani{
-	max-width: 100px;
-	max-height:100px;
-}
-.my_ani th,td{
-	border-bottom: 1px solid black;
-}
-.join{
-
- 	max-width:60%;
-	max-height:900px;
-	border-collapse: separate;
-	border-spacing: 0 0;
- border: none;
- background-color: rgba(255,255,255,0.3);
-}
-.join th td{
-	height:140px;
-	border:none;
-}
-
-.join span{
-	text-align: left;
-	font-size: 13px;
-}
-
-.join input{
-	border:none;
-	text-align:center;
-	align-content: center;
-	text-align: center;
-	width: 100%;
-	background: transparent;
-}
-
-.choice {
-	text-align:center;
-	height:70px;
-}
-
-.choice input{
-	width:20%;
-}
-.po{
-	height:70px;
-}
-/* #subm{
-	border-bottom:none;
-}
-#but{
-	border:1px solid black;
-	display:inline;
-	background: transparent;
-	text-align:center;
-	margin: 0 auto;
-	align-content:center;
-}
-#but:hover {
-	background-color: white;	
-	color: black;
-	border: 1px solid black;
-} */
-
-#sub{
-	width: 25%;
-	border: 1px solid black;
+	margin-right: 800px;
 }
 
 #sub:hover {
-	background-color:rgba(0,0,0,0.5);	
-	color: black;
-	border: 1px solid black;
+border: 1px solid #8a704f;
+background-color: #f9f6ef;
+color: #8a704f;
 }

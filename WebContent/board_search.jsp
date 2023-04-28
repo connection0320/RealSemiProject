@@ -23,7 +23,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <link rel="stylesheet" href="board_css/board.css">
 </head>
 <body>
@@ -32,22 +32,17 @@
 	
 	<div align="center">
 	<c:set var="dto" value="${content }" />
-		<hr width="50%" color="navy">
-			<h3><%=location %> 게시판 </h3>
-		<hr width="50%" color="navy">
-		<br>
-		
-		
-		
+		<div id="board_head"><span class="sp-title"><%=location %> 게시판 </span></div>
+		<br><br><br>
+
 		<table class="table">
-			
 			<tr>
-				<th>No.</th>		
-				<th>말머리</th>		
-				<th>글 제목</th>		
-				<th>작성자</th>		
-				<th>조회수</th>		
-				<th>작성일자</th>		
+				<th id="search-th">No.</th>		
+				<th id="search-th">말머리</th>		
+				<th id="search-th">글 제목</th>		
+				<th id="search-th">작성자</th>		
+				<th id="search-th">조회수</th>		
+				<th id="search-hit-th">작성일자</th>		
 			</tr>
 			
 			<%
@@ -63,12 +58,12 @@
 																			
 							<td> <%=bdto.getNick()%> </td>
 							<td> <%=bdto.getBoard_hit()%> </td>			
-							<td> <%=bdto.getBoard_regdate().substring(0,10)%> </td>
+							<td id="xboard"> <%=bdto.getBoard_regdate().substring(0,10)%> </td>
 						</tr>				
 			<% } 
 			} else {		// 조회된 게시물이 없는 경우
 			%>	<tr>
-					<td colspan="6" align="center">
+					<td id="xboard" colspan="6" align="center">
 						<h3>조회 된 게시물이 없습니다.</h3>
 					</td>
 				</tr>		
@@ -77,7 +72,7 @@
 		</table>
 		
 		<br>
-		<input type="button" value="목록" onclick="location.href='board_list.go?location=<%=location %>'">
+		<input id="cont_bt2" type="button" value="목록" onclick="location.href='board_list.go?location=<%=location %>'">
 		<br>
 		<br>
 		

@@ -29,17 +29,17 @@ public class MemberIdCheck implements Action {
 		 */ 
 		if(check == 1){
 			out.println("<script>");
-			out.println("alert('사용 불가능한 아이디입니다')");
+			out.println("alert('사용 불가능한 아이디입니다.')");
 			out.println("history.back()");				
 			out.println("</script>");
 		}else if(check == 0){
 			out.println("<script>");
-			out.println("alert('사용 가능한 아이디입니다')");
+			out.println("alert('사용 가능한 아이디입니다.')");
 			out.println("history.back()");				
 			out.println("</script>");	
 		}else{
 			out.println("<script>");
-			out.println("alert('다시 입력해주세요입니다')");
+			out.println("alert('다시 입력해주세요.')");
 			out.println("history.back()");				
 			out.println("</script>");	
 

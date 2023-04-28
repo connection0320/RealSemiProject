@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <script src="https://kit.fontawesome.com/6d4b3bed20.js" crossorigin="anonymous"></script>
 <link rel = "stylesheet" href = "s.css/login.css">
 

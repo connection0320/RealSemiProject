@@ -37,7 +37,7 @@ public class FindId implements Action {
 		}else {
 			// 이름, 폰번호가 있는경우
 			out.println("<script>");
-			out.println("alert('해당 정보 회원의 ID는"+dto.getMember_id()+" 입니다.')");
+			out.println("alert('해당 정보 회원의 ID는 "+dto.getMember_id()+" 입니다.')");
 			out.println("location.href ='m_login.jsp'");
 			out.println("</script>");
 		}

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <style>
 	.conH{
 		background-color: rgb(249, 246, 239);
@@ -58,8 +58,9 @@
 
     /* style for messages sent by me */
   .sent-by-me {
-    align-self: flex-end;
-    background-color: #C9E6FF;
+  	width: 40%;
+  	height: 15%;
+    align-self: flex-start;
     color: #000;
     margin-bottom: 10px;
     margin-right: 10px;
@@ -69,13 +70,15 @@
     border-top-right-radius: 20px;
     padding: 10px;
     font-size: 16px;
+    text-align: right; /* 이 부분 추가 */
 }
 
     /* style for messages sent by other users */
     .sent-by-others {
-    align-self: flex-start;
-    background-color: rgb(255, 235, 51);
-    color: #000;
+   	width: 40%;
+  	height: 15%;
+    align-self: flex-end;
+    color: yeloow;
     margin-bottom: 10px;
     margin-right: auto;
     margin-left: 10px;
@@ -191,11 +194,12 @@
 	    </form>
 	</div>
 </div>
-<script type="text/javascript">
-	window.onload = function() {
-	  var messagesContainer = document.querySelector(".messages-container");
-	  messagesContainer.scrollTop = messagesContainer.scrollHeight;
-	}
+<script>
+  const input = document.querySelector(".message-input");
+  input.focus(); // 입력폼에 포커스
+
+  const messagesContainer = document.querySelector(".messages-container");
+  messagesContainer.scrollTop = messagesContainer.scrollHeight; // 최근 메세지가 보이도록 스크롤 이동
 </script>
 
 <%@include file="footer.jsp"%>

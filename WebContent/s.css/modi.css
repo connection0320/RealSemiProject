@@ -50,12 +50,11 @@ html{
 	
 }
 
-th{
+.join th{
 	background-color: #8a704f;	
+	color:rgb(249, 246, 239);
 	border-radius:10px;		
-/* 	color: white; */
-	
-
+	color: white;
 }
 #tr{	
 	border: none;
@@ -65,11 +64,12 @@ th{
 	background-color:  #8a704f;
 	color: white;
 	padding: 10px 25px;
+	border-radius: 5px;
 }
 #sub td{
 	border: none;
 }
 
-button:hover {
+/* button:hover {
   cursor: url("../s.image/main_cur_s.png")20 50, auto;
-}
+} */

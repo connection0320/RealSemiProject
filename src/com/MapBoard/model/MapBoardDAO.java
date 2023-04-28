@@ -466,7 +466,6 @@ public class MapBoardDAO {
 				
 				while(rs.next()) {
 					if(rs.getInt("member_num") == mem) {
-						System.out.println("여기가 안들어오나?");
 						// 이미 해당 회원이 좋아요를 누른 경우
 						// 명단에서 제거
 						

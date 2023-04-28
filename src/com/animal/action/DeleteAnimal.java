@@ -29,8 +29,7 @@ public class DeleteAnimal implements Action {
 		int result = 0;
 		if(mdto.getMember_animal1() == Animal_num) {
 			// 첫번째 동물 삭제
-			
-			
+		
 			if(mdto.getMember_animal2() != 0 && mdto.getMember_animal3() != 0   ) {
 				// 2번째,3번재 동물이 있음
 				int a = 1; 
@@ -73,7 +72,7 @@ public class DeleteAnimal implements Action {
 		
 		
 		// fileUpload 폴더에 업로드된 첨부파일까지 삭제하자.
-	      String upload = "C:\\NCS\\workspace(jsp)\\RealSemiP\\WebContent\\animal";
+	      String upload = "C:\\Users\\user1\\Desktop\\RealSemiP\\WebContent\\animal";
 	      
 	      // 상세내역에서 업로드된 첨부파일을 가져오자.
 	      String fileName = adto.getAnimal_image();
@@ -95,7 +94,7 @@ public class DeleteAnimal implements Action {
 		if(result == 1) {
 			adao.updateSequence(Animal_num);
 			out.println("<script>");
-			out.println("alert('삭제성공적으로완료')");
+			out.println("alert('동물 삭제 성공')");
 			out.println("location.href='content.member.do?id="+Member_id+"'");
 			out.println("</script>");
 		}

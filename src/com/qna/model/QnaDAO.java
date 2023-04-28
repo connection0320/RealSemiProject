@@ -85,6 +85,30 @@ public class QnaDAO {
 		}
 	}	// closeConn() 메서드 end
 	
+	// qna_board 테이블의 전체 게시물의 수를 확인하는 메서드.
+	public int getQnaCount() {
+		int count = 0;
+		
+		try {
+			openConn();
+			
+			sql = "select count(*) from qna_board";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return count;
+	} // getQnaCount() 메서드 end
+	
 	// qna_board 테이블의 전체 게시물을 조회하는 메서드
 	public List<QnaDTO> getQnaList() {
 		List<QnaDTO> list = new ArrayList<QnaDTO>();
@@ -180,42 +204,42 @@ public class QnaDAO {
 	} // getQnaCont() 메서드 end
 	
 	// qna_board 테이블에 게시글을 추가하는 메서드.
-	public int insertQna(QnaDTO dto) {
-		int result = 0, count = 0;
-		
-		try {
-			openConn();
-			
-			sql = "select max(qna_num) from qna_board";
-			
-			pstmt = con.prepareStatement(sql);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				count = rs.getInt(1) + 1;
-			}
-			
-			sql = "insert into qna_board values(?, ?, ?, default, ?, sysdate, '', ?, ?, ?)";
-			
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setInt(1, count);
-			pstmt.setString(2, dto.getQna_title());
-			pstmt.setString(3, dto.getQna_head());
-			pstmt.setInt(4, dto.getQna_writer());
-			pstmt.setString(5, dto.getQna_file());
-			pstmt.setString(6, dto.getQna_content());
-			pstmt.setString(7, dto.getQna_pwd());
-			
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			closeConn(rs, pstmt, con);
-		}
-		return result;
-	} // insertQna() 메서드 end
+	   public int insertQna(QnaDTO dto) {
+	      int result = 0, count = 0;
+	      
+	      try {
+	         openConn();
+	         
+	         sql = "select max(qna_num) from qna_board";
+	         
+	         pstmt = con.prepareStatement(sql);
+	         
+	         rs = pstmt.executeQuery();
+	         
+	         if(rs.next()) {
+	            count = rs.getInt(1) + 1;
+	         }
+	         
+	         sql = "insert into qna_board values(?, ?, ?, default, ?, sysdate, '', ?, ?, ?)";
+	         
+	         pstmt = con.prepareStatement(sql);
+	         
+	         pstmt.setInt(1, count);
+	         pstmt.setString(2, dto.getQna_title());
+	         pstmt.setString(3, dto.getQna_head());
+	         pstmt.setInt(4, dto.getQna_writer());
+	         pstmt.setString(5, dto.getQna_file());
+	         pstmt.setString(6, dto.getQna_content());
+	         pstmt.setString(7, dto.getQna_pwd());
+	         
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         closeConn(rs, pstmt, con);
+	      }
+	      return result;
+	   } // insertQna() 메서드 end
 	
 	// qna_board 테이블에 게시글 번호에 해당하는 게시글을 수정하는 메서드.
 	public int updateQna(QnaDTO dto) {
@@ -236,23 +260,25 @@ public class QnaDAO {
 				if(dto.getQna_pwd().equals(rs.getString("qna_pwd"))) {
 					if(dto.getQna_file() == null) {
 						// 첨부파일이 없는 경우
-						sql = "update qna_board set qna_title = ?, qna_content = ?, qna_update = sysdate where qna_num = ?";
+						sql = "update qna_board set qna_title = ?, qna_head = ?, qna_content = ?, qna_update = sysdate where qna_num = ?";
 						
 						pstmt = con.prepareStatement(sql);
 						
 						pstmt.setString(1, dto.getQna_title());
-						pstmt.setString(2, dto.getQna_content());
-						pstmt.setInt(3, dto.getQna_num());
+						pstmt.setString(2, dto.getQna_head());
+						pstmt.setString(3, dto.getQna_content());
+						pstmt.setInt(4, dto.getQna_num());
 					} else {
 						// 첨부파일이 있는 경우
-						sql = "update qna_board set qna_title = ?, qna_content = ?, qna_file = ?, qna_update = sysdate where qna_num = ?";
+						sql = "update qna_board set qna_title = ?, qna_head = ?, qna_content = ?, qna_file = ?, qna_update = sysdate where qna_num = ?";
 						
 						pstmt = con.prepareStatement(sql);
 						
 						pstmt.setString(1, dto.getQna_title());
-						pstmt.setString(2, dto.getQna_content());
-						pstmt.setString(3, dto.getQna_file());
-						pstmt.setInt(4, dto.getQna_num());
+						pstmt.setString(2, dto.getQna_head());
+						pstmt.setString(3, dto.getQna_content());
+						pstmt.setString(4, dto.getQna_file());
+						pstmt.setInt(5, dto.getQna_num());
 					}
 					result = pstmt.executeUpdate();
 				} else {
@@ -408,33 +434,31 @@ public class QnaDAO {
 	} // searchListCount() 메서드 end
 	
 	// board 테이블에서 검색한 내용을 가지고 페이징 처리를 하는 메서드.
-	public List<QnaDTO> getSearchQnaList(String field, String keyword, int page, int rowsize) {
+	public List<QnaDTO> getSearchQnaList(String field, String keyword) {
 		List<QnaDTO> searchList = new ArrayList<QnaDTO>();
-		
-		// 해당 페이지에서 시작번호
-		int startNo = (page * rowsize) - (rowsize - 1);
-		int endNo = (page * rowsize);
 		
 		try {
 			openConn();
 			
-			sql = "select * from (select row_number() over(order by qna_num desc) rnum, b.* from qna_board b";
+			sql = "select * from qna_board ";
 			
 			if(field.equals("head")) {
-				sql += " where qna_head like ?)";
+				sql += "where qna_head like ?";
 			} else if(field.equals("title")) {
-				sql += " where qna_title like ?)";
+				sql += "where qna_title like ?";
 			} else if(field.equals("writer")) {
-				sql += " where board_writer like ?)";
+				sql += "q join member n on q.qna_writer = n.member_num where n.member_nick like ?";
 			}
 			
-			sql += " where rnum >= ? and rnum <= ?";
+			if(field.equals("writer")) {
+				sql += " order by q.qna_num desc";
+			}else {
+				sql += " order by qna_num desc";
+			}
 			
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, '%' + keyword + '%');
-			pstmt.setInt(2, startNo);
-			pstmt.setInt(3, endNo);
 			
 			rs = pstmt.executeQuery();
 			

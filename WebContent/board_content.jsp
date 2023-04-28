@@ -24,7 +24,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <link rel="stylesheet" href="board_css/board.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
 	<div align="center">
 	<c:set var="dto" value="${content }" />
 		<div id="board_head"><span class="sp-title"><%=cont.getBoard_area() %> 게시판</span></div>
-		<br>
+		<br><br><br>
 		
 		<table class="table">
 		<%  if(cont != null) { %>
@@ -81,7 +81,7 @@
 			</tr>
 			
 			<tr>
-				<th id="contTh">좋아요</th>
+				<th id="contTh">추천</th>
       				<td id="contTd">
       					<% 
 							if(session.getAttribute("UserId") == null){
@@ -106,7 +106,7 @@
 			<% } else { %>	
 				<tr>
 					<td colspan="2" align="center">
-						<h3>조회된 게시글 정보가 없습니다.</h3>	
+						<h4>조회된 게시글 정보가 없습니다.</h4>	
 					</td>
 				</tr>
 			<%	}	%>
@@ -115,10 +115,10 @@
 			
 			
 			<% if(mem_num == cont.getBoard_writer()){ %>
-				<input id="cont_bt" type="button" value="수정" onclick="location.href='board_modify.go?no=<%=cont.getBoard_num()%>&page=<%=pagee%>'">&nbsp; 
-				<input id="cont_bt" type="button" value="삭제" onclick="if(confirm('삭제하시겠습니까?')) {location.href='board_delete_ok.go?no=<%=cont.getBoard_num()%>&location=<%=cont.getBoard_area()%>'} else {return}">&nbsp;
+				<input id="cont_bt2" type="button" value="수정" onclick="location.href='board_modify.go?no=<%=cont.getBoard_num()%>&page=<%=pagee%>'">&nbsp;&nbsp; 
+				<input id="cont_bt2" type="button" value="삭제" onclick="if(confirm('삭제하시겠습니까?')) {location.href='board_delete_ok.go?no=<%=cont.getBoard_num()%>&location=<%=cont.getBoard_area()%>'} else {return}">&nbsp;&nbsp; 
 			<% } %>
-			<input id="cont_bt" type="button" value="목록" onclick="location.href='board_list.go?location=<%=cont.getBoard_area()%>'"> 
+			<input id="cont_bt2" type="button" value="목록" onclick="location.href='board_list.go?location=<%=cont.getBoard_area()%>'"> 
 			<br>
 			<br>
 			

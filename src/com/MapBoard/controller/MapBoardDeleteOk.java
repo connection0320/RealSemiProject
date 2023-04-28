@@ -34,7 +34,7 @@ public class MapBoardDeleteOk extends HttpServlet {
 		MapBoardDTO dto = dao.getContentMapBoard(no);
 
 		// fileUpload 폴더에 업로드 된 첨부파일까지 삭제하자.
-		String saveFolder = "C:\\Users\\user1\\git\\RealSemiProject\\WebContent\\file";
+		String saveFolder = "C:\\Users\\user1\\Desktop\\RealSemiP\\WebContent\\file";
 
 		// 상세내역에서 업로드 된 첨부파일을 가져오자.
 		String fn = dto.getBoard_file();
@@ -55,12 +55,12 @@ public class MapBoardDeleteOk extends HttpServlet {
 		if(check > 0) {
 			dao.updateSequence(board_no);
 			out.println("<script>");
-			out.println("alert('게시글 삭제 성공:)')");
+			out.println("alert('게시글 삭제 성공')");
 			out.println("location.href='board_list.go?location="+location+"'");
 			out.println("</script>");
 		} else {
 			out.println("<script>");
-			out.println("alert('게시글 삭제 실패:(')");
+			out.println("alert('게시글 삭제 실패')");
 			out.println("history.back()");
 			out.println("</script>");
 		}

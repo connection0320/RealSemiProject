@@ -35,12 +35,12 @@ public class MemberInsert implements Action {
 		PrintWriter out = response.getWriter();
 		if(res > 0) {
 			out.println("<script>");
-			out.println("alert('회원가입 성공햇심')");
+			out.println("alert('회원 가입 성공')");
 			out.println("location.href='m_login.jsp'");
 			out.println("</script>");
 		}else {
 			out.println("<script>");
-			out.println("alert('회원가입 실패')");
+			out.println("alert('회원 가입 실패')");
 			out.println("history.back()");
 			out.println("</script>");
 		}

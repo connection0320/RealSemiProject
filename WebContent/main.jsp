@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <style>
 .area { 
     position: absolute;
@@ -265,7 +265,7 @@ background-color: #f9f6ef;
 			
 		</div>
 	</div>
-	
+	<br><br><br><br><br><br><br><br><br><br><br>
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0ca11fd4727e4735fab6d6b4bfc1f2e3"></script>

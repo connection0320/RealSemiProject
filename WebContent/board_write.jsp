@@ -17,7 +17,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Insert title here</title>
+<title>펫만나</title>
 <link rel="stylesheet" href="board_css/board.css">
 <script type="text/javascript">
 	function check() {
@@ -40,10 +40,9 @@
 </script>
 </head>
 <body>
-     <div align="center">
-    <hr width="50%" color="blue">
-	<h3><%=location %> 게시판 </h3>
-	<hr width="50%" color="blue">
+	<%@include file="header.jsp"%>
+    <div align="center">
+	<div id="board_head"><span class="sp-title"><%=location %> 게시판 </span></div>
 	<br>
 	<form method="post" name="f" action="<%=request.getContextPath() %>/board_write_ok.go"
 		enctype="multipart/form-data" onsubmit="return check()">
@@ -95,11 +94,12 @@
 		<br>
 		
 		<div class="submit1">
-			<input class="submit_btn btn-primary" type="submit" value="글쓰기">
-			<input class="submit_btn btn-primary" type="reset" value="다시 작성">
+			<input id="cont_bt" type="submit" value="글쓰기">&nbsp;&nbsp;
+			<input id="cont_bt" type="reset" value="다시 작성">
 
 		</div>
 	</form>
+	<%@include file="footer.jsp"%>
 	</div>
 
 </body>

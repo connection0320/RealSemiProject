@@ -35,7 +35,7 @@ public class FriAddOkAction implements Action {
 	    if(check == 0) {
 	    	fdao.fri_request(loginno, frindno);
 	    	out.println("<script>");
-	    	out.println("alert('친구 신청을 보냈습니다.')");
+	    	out.println("alert('친구 신청 성공')");
 	    	out.println("history.back()");	    	
 	    	out.println("</script>");
 	    }else if(check == 1) {

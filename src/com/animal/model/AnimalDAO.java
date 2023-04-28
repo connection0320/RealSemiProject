@@ -111,11 +111,11 @@ public class AnimalDAO {
 			
 			sql = "insert into animal values(?, ?, ?, ?, ?, ?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, dto.getAnimal_name());
-			pstmt.setInt(2, dto.getAnimal_age());
-			pstmt.setString(3, dto.getAnimal_race());
-			pstmt.setString(4, dto.getAnimal_gender());
-			pstmt.setInt(5, count);
+			pstmt.setInt(1, count);
+			pstmt.setString(2, dto.getAnimal_name());
+			pstmt.setInt(3, dto.getAnimal_age());
+			pstmt.setString(4, dto.getAnimal_race());
+			pstmt.setString(5, dto.getAnimal_gender());
 			pstmt.setString(6, dto.getAnimal_type());
 			pstmt.setString(7, dto.getAnimal_image());
 			pstmt.executeUpdate();
@@ -167,20 +167,23 @@ public class AnimalDAO {
 			pstmt.executeUpdate();
 			
 			if(a == 1) {
-				sql = "update member set member_animal1 = ?, member_animal2 = ?, member_animal3 = null";
+				sql = "update member set member_animal1 = ?, member_animal2 = ?, member_animal3 = null where member_num = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, dto.getMember_animal2());
 				pstmt.setInt(2, dto.getMember_animal3());
+				pstmt.setInt(3, dto.getMember_num());
 				result = pstmt.executeUpdate();
 			}else if (a == 2) {
-				sql = "update member set member_animal1 = ?, member_animal2 = null";
+				sql = "update member set member_animal1 = ?, member_animal2 = null where member_num = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, dto.getMember_animal2());
+				pstmt.setInt(2, dto.getMember_num());
 				result = pstmt.executeUpdate();
 			}else if (a == 4) {
-				sql = "update member set member_animal2 = ?, member_animal3 = null";
+				sql = "update member set member_animal2 = ?, member_animal3 = null where member_num = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, dto.getMember_animal3());
+				pstmt.setInt(2, dto.getMember_num());
 				result = pstmt.executeUpdate();
 			}else {
 				result = 1;

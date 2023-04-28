@@ -4,27 +4,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
+<link rel="stylesheet" href="board_css/board.css">
 </head>
 <body>
+	<%@include file="header.jsp"%>
 	<div align = "center">
-		<hr width = "50%" color = "marmoon">
-		<h3>qna 테이블 게시글 삭제 폼 페이지</h3>
-		<hr width = "50%" color = "marmoon">
+		<div id="board_head"><span class="sp-title">고객센터 작성 게시글 삭제 페이지</span></div>
+		<br>
 		<form method = "post" action = "<%=request.getContextPath() %>/qna_delete_ok.so">
 			<input type = "hidden" name = "qna_num" value = "${param.no}">
-			<table border = "1" cellspacing = "0" width = "400">
+			<table class="table">
 				<tr>
-					<th>삭제할 게시글 비밀번호</th>
-					<td><input type = "password" name = "pwd"></td>
-				</tr>
-				<tr>
-					<td colspan = "2" align = "center">
-					<input type = "submit" value = "글삭제">&nbsp;&nbsp;
-					<input type = "reset" value = "다시작성"></td>
+					<th id="contTh">삭제할 게시글<br> 비밀번호</th>
+					<td id="contTd"><input type = "password" name = "pwd"></td>
 				</tr>
 			</table>
+			<br>
+			<div>
+				<input id="cont_bt" type = "submit" value = "글삭제">&nbsp;&nbsp;
+				<input id="cont_bt" type = "reset" value = "다시작성">
+			</div>
 		</form>
 	</div>
+	<%@include file="footer.jsp"%>
 </body>
 </html>

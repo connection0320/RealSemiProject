@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 </head>
 <body>
-<%@include file="header.jsp" %>
 <body>
+<%@include file="header.jsp" %>
     <div align="center">
         <hr width="50%" color="red">
         <h3>친구 추가 가능한 회원 목록</h3>

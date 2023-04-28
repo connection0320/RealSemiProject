@@ -26,12 +26,12 @@ public class DeleteOkContent implements Action {
 		if(dto.getMember_pwd().equals(member_pwd)) {
 			dao.deleteMember(member_num);
 			out.println("<script>");
-			out.println("alert('탈퇴완료')");
+			out.println("alert('계정 탈퇴 성공')");
 			out.println("location.href='m_logout.jsp'");
 			out.println("</script>");
 		}else {
 			out.println("<script>");
-			out.println("alert('탈퇴실패')");
+			out.println("alert('계정 탈퇴 실패')");
 			out.println("history.back()");
 			out.println("</script>");
 		}

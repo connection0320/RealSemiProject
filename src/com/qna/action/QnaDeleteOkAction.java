@@ -24,7 +24,7 @@ public class QnaDeleteOkAction implements Action {
 		QnaDTO cont = dao.getQnaContent(qna_num);
 		
 		// fileUpload 폴더에 업로드된 첨부파일까지 삭제하자.
-		String upload = "C:\\Users\\user1\\git\\RealSemiProject\\WebContent\\qnaFileUpload";
+		String upload = "C:\\Users\\user1\\Desktop\\RealSemiP\\WebContent\\qnaFileUpload";
 				
 		// 상세내역에서 업로드된 첨부파일을 가져오자.
 		String fileName = cont.getQna_file();
@@ -44,12 +44,12 @@ public class QnaDeleteOkAction implements Action {
 			
 			if(check > 0) {
 				out.println("<script>");
-				out.println("alert('Qna 게시판 게시글 삭제 성공')");
+				out.println("alert('게시글 삭제 성공')");
 				out.println("location.href='qna_list.so?id="+id+"'");
 				out.println("</script>");
 			} else {
 				out.println("<script>");
-				out.println("alert('Qna 게시판 게시글 삭제 실패')");
+				out.println("alert('게시글 삭제 실패')");
 				out.println("history.back()");
 				out.println("</script>");
 			}

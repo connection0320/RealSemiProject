@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <link rel="stylesheet" href="s.css/find_id_pwd.css">
 </head>
 <body>
@@ -21,6 +21,6 @@
 				<img alt="슬퍼요" src="s.image/button.png">
 			</div>
 	</form>
-<%@include file="footer.jsp"%>
+
 </body>
 </html>

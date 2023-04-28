@@ -37,7 +37,7 @@ public class MapBoardWriteOk extends HttpServlet {
 		
 		// 파일 업로드 시에는 설정해야 할 내용이 있음.
 		// 1. 첨부파일 저장 경로 지정.
-		String saveFolder = "C:\\Users\\user1\\git\\RealSemiProject\\WebContent\\file";
+		String saveFolder = "C:\\Users\\user1\\Desktop\\RealSemiP\\WebContent\\file";
 		
 		// 2. 첨부파일 크기 지정.
 		int fileSize = 10*1024*1024;		// 10MB
@@ -127,12 +127,12 @@ public class MapBoardWriteOk extends HttpServlet {
 		
 		if(check > 0) {
 			out.println("<script>");
-			out.println("alert('게시글 등록 성공 :)')");
+			out.println("alert('게시글 등록 성공')");
 			out.println("location.href='board_list.go?location="+location+"'");
 			out.println("</script>");
 		} else {
 			out.println("<script>");
-			out.println("alert('게시글 등록 실패 :(')");
+			out.println("alert('게시글 등록 실패')");
 			out.println("history.back()");
 			out.println("</script>");
 		}

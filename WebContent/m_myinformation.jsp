@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <link rel="stylesheet" href="s.css/inff.css">
 </head>
 <body>
@@ -35,10 +35,6 @@
 				<tr>
 					<th> 회원 아이디 </th>
 					<td> ${Dto.getMember_id()} </td>
-				</tr>
-				<tr>
-					<th> 회원 비밀번호 </th>
-					<td> ${Dto.getMember_pwd()} </td>
 				</tr>
 				<tr>
 					<th> 회원 닉네임</th>
@@ -106,15 +102,15 @@
 	<%} %>
 	<br>
 	<div align="center" id="button">
-		<button onclick="location.href='fri_list.to?id=<%=(String)session.getAttribute("UserId")%>'">친구 목록</button>
+		<button onclick="location.href='fri_list.to?id=<%=(String)session.getAttribute("UserId")%>'">친구목록</button>
 		
-		<button  onclick="location.href='fri_acc.to?id=<%=(String)session.getAttribute("UserId")%>'">친구 신청</button>
+		<button  onclick="location.href='fri_acc.to?id=<%=(String)session.getAttribute("UserId")%>'">친구신청</button>
 		
-		 <button onclick="location.href='modify.member.do?no=${Dto.getMember_num()}'">정보 수정</button>
+		 <button onclick="location.href='modify.member.do?no=${Dto.getMember_num()}'">정보수정</button>
 		 
-		 <button  onclick="window.open('delete.do?no=${Dto.getMember_num()}', '_blank','width=450,height=300')">회원 탈퇴</button>
+		 <button  onclick="window.open('delete.do?no=${Dto.getMember_num()}', '_blank','width=450,height=300')">회원탈퇴</button>
 		 
-		 <button onclick="location.href='AniamlInsert.no?no=${Dto.getMember_num()}'">등록하기</button>
+		 <button onclick="location.href='AniamlInsert.no?no=${Dto.getMember_num()}'">동물등록</button>
 	 </div>
 	 
 	 </div>

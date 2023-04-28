@@ -18,6 +18,7 @@ public class QnaReplyInsertOkAction implements Action {
 		String reply_writer = request.getParameter("re_writer").trim();
 		String reply_cont = request.getParameter("re_content").trim();
 		int reply_qno = Integer.parseInt(request.getParameter("qno").trim());
+		int page = Integer.parseInt(request.getParameter("page").trim());
 		
 		QnaReplyDTO dto = new QnaReplyDTO();
 		
@@ -31,7 +32,7 @@ public class QnaReplyInsertOkAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("qna_content.so?num="+reply_qno);
+		forward.setPath("qna_content.so?num="+reply_qno+"&page="+page);
 		
 		return forward;
 	}

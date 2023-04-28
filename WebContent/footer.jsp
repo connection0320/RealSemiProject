@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +10,17 @@
 </head>
 <body>
 <footer id="footer">
-	<hr>
-		<div align="center" class="footer_cont">
-			주식회사 : pet
-			<br>
-			소재지: 서울시 어딘가
-			<br>
-			<a href="tel 02-000-0000">전화번호 02-000-0000</a>
-			<br>	
-			KH정보아카데미
-		</div>
+   <hr>
+      <div align="center" class="footer_cont">
+         <br>
+         <small>김태우&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 도수경&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 이상우&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 홍서화
+         <br>
+         Copyright@펫만나 co.,Ltd. All Rights reserved.
+         </small>
+      </div>
 
 </footer>
 

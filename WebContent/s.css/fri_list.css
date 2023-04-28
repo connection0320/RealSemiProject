@@ -32,11 +32,10 @@
   margin-top: 5%;
  }
 
-/* #tion th,td{
-	max-width:140px;
-	min-width:50px;
-	margin: 100px;
-} */
+#tion th{
+  color: #8a704f;
+	
+}
 
 span{
 	font-size: 25px;
@@ -44,21 +43,21 @@ span{
 #tion td{
 	text-align: center;
  	color:#8a704f;
-   	border: none;
-  	border-bottom: 1px solid black;
+ 	border:none;
   	height: 50px;
-  	border-top: 1px solid black;
+  	border-bottom: 1px solid #8a704f;
+  	border-top: 1px solid #8a704f;
   	margin-bottom: 5px;
 }
 
 
-#tion td:first-child {
+/* #tion td:first-child {
   border-left: 1px solid black;
 }
 
 #tion td:last-child {
   border-right: 1px solid black;
-}
+} */
 #non{
 	border: none;
 }

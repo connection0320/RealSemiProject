@@ -38,7 +38,7 @@ public class FindPwd implements Action {
 		}else {
 			// 이름, 폰번호가 있는경우
 			out.println("<script>");
-			out.println("alert('해당 정보 회원의 비밀번호는"+dto.getMember_pwd()+" 입니다.')");
+			out.println("alert('해당 정보 회원의 비밀번호는 "+dto.getMember_pwd()+" 입니다.')");
 			out.println("location.href ='m_login.jsp'");
 			out.println("</script>");
 		}

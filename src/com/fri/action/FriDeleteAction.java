@@ -31,12 +31,12 @@ public class FriDeleteAction implements Action {
 	    if(check == 0) {
 	    	// 친구삭제실패
 	    	out.println("<script>");
-	    	out.println("alert('친구 삭제를 실패하였습니다.')");
+	    	out.println("alert('친구 삭제 실패')");
 	    	out.println("history.back()");	    	
 	    	out.println("</script>");
 	    }else if(check == 1) {
 	    	out.println("<script>");
-	    	out.println("alert('친구삭제완료')");
+	    	out.println("alert('친구 삭제 성공')");
 	    	out.println("location.href='fri_list.to?id="+userId+"'");
 	    	out.println("</script>");
 	    }

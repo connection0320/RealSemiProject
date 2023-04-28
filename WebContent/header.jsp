@@ -4,14 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <link rel ="stylesheet" href="s.css/head.css">
 </head>
 <body>
 	<header id="head">
-	<a href="main.jsp" class="mainpage"><img src ="s.image/house.png"></a>
+	
+<!-- 	<img src ="s.image/house.png">
+ -->	
 	 <div  class="head_logo">
+	<a href="main.jsp">
 	 	<img src="s.image/r_logo_s.png">
+	</a>
 	 </div>
 	<% 
 		if(session.getAttribute("UserId") == null){
@@ -20,13 +24,13 @@
 	<% 
 		}else{
 	%>
-	<a href="content.member.do?id=<%=(String)session.getAttribute("UserId")%>" class="qna">내정보</a>
+	<a href="content.member.do?id=<%=(String)session.getAttribute("UserId")%>" class="qna">내 정보</a>
 
 	<%	
 		}
 	%>
 
-	<a href="qna_main.jsp" class="qna">QnA</a>
+	<a href="qna_main.jsp" class="qna">고객센터</a>
 
 	<%
 		if(session.getAttribute("UserId") == null){

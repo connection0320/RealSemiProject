@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
+<link rel="stylesheet" href="board_css/board.css">
 </head>
 <body>
 	<%@include file="header.jsp"%>
-
-	<h3> 로그인 먼저 진행해주세요.</h3>
+	<div id="board_head"><span class="sp-title">로그인 후 이용해주세요.</span></div>
 	<%@include file="footer.jsp"%>
-
 </body>
 </html>

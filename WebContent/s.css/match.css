@@ -4,11 +4,7 @@ body{
 	width: 100%;
 }
 .container{
-	background: url("../s.image/su_nback2.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	background:rgb(249, 246, 239);
 	align-content: center;
 	height: 1000px;
 	max-width: 100%;
@@ -34,21 +30,23 @@ body{
 }
 
 .match_img{
-	width: 150px;
-	height:150px;
+	width: 190px;
+	height:190px;
 	border-radius: 70%;
 }
 
 .match_table td{
+	padding-left:2%;
 	font-size:1em;
-	text-align:center;
+	text-align:left;
 	height:350px;
-	border: 1px solid black;
+	border: 1px solid #8a704f;
 	border-radius: 10px;
+	color: #8a704f;
 }
 
 .match_table button{
-     background:url("../s.image/onlylogo.png") no-repeat center center;
+     background:url("../s.image/buu.png") no-repeat center center #8a704f;
 	background-size:auto 100%;
 	width: 80%;
 	margin-left:10%;
@@ -56,6 +54,7 @@ body{
 	padding: 20px;
 	border-radius: 20px;
 	cursor: pointer;
+	border:1px solid #8a704f;
 }
 
 

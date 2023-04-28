@@ -34,13 +34,13 @@ public class FriAccOkAction implements Action {
 		if(result == 0) {
 			// 친구수락 실패
 			out.println("<script>");
-			out.println("alert('친구 수락에 실패하셨습니다/')");
+			out.println("alert('친구 수락 실패')");
 			out.println("history.back()");
 			out.println("</script>");
 		}else {
 			// 친구수락 성공
 			out.println("<script>");
-			out.println("alert('친구 수락에 성공하셨습니다/')");
+			out.println("alert('친구 수락 성공')");
 			out.println("location.href='fri_list.to?id="+id+"'");
 			out.println("</script>");
 		}

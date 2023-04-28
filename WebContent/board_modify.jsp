@@ -19,7 +19,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>펫만나</title>
 <link rel="stylesheet" href="board_css/board.css">
 <script type="text/javascript">
 
@@ -53,11 +53,11 @@
 </script>
 </head>
 <body>
-
+	<%@include file="header.jsp"%>
 	<div align="center">
 		<c:set var="dto" value="${Modify }" />
 		<div id="board_head"><span class="sp-title"><%=nick %>님 게시물 수정 페이지</span></div>
-		<br>
+		<br><br><br>
 		
 		<form method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/board_modify_ok.go?&page=<%=pagee%>" onsubmit="return check()">
 		<input type="hidden" name="no" value="${dto.getBoard_num() }">
@@ -66,7 +66,7 @@
 				<tr>
 					<th id="contTh">말머리</th>
 						<td id="contTd">	
-							<select id="head" name="field">
+							<select name="field">
 								<option class="op" value="dona">나눔</option>
 								<option class="op" value="boast">자랑</option>
 								<option class="op" value="share">정보 공유</option>
@@ -107,11 +107,12 @@
 				<br>
 					
 				<div>
-					<input type="submit" value="수정">&nbsp;&nbsp;
-					<input type="button" value="목록" onclick="location.href='board_list.go?location=<%=cont.getBoard_area()%>&page=<%=pagee%>'">
+					<input id="cont_bt2" type="submit" value="수정">&nbsp;&nbsp;
+					<input id="cont_bt2" type="button" value="목록" onclick="location.href='board_list.go?location=<%=cont.getBoard_area()%>&page=<%=pagee%>'">
 				</div>
 			
-		</form>	
+		</form>
+	<%@include file="footer.jsp"%>		
 	</div>
 
 </body>
